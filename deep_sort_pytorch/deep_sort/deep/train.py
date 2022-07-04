@@ -144,7 +144,7 @@ def test(epoch):
     acc = 100.*correct/total
     if acc > best_acc:
         best_acc = acc
-        print("Saving parameters to checkpoint/ckpt.t7")
+        print("Saving parameters to ckpt.t7")
         checkpoint = {
             'net_dict': net.state_dict(),
             'acc': acc,
@@ -152,7 +152,7 @@ def test(epoch):
         }
         if not os.path.isdir('checkpoint'):
             os.mkdir('checkpoint')
-        torch.save(checkpoint, './checkpoint/ckpt.t7')
+        torch.save(checkpoint, 'ckpt.t7')
 
     return test_loss/len(testloader), 1. - correct/total
 
